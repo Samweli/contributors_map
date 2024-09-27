@@ -35,6 +35,8 @@ Before running the script, make sure you have the following:
    export GITHUB_TOKEN=your_github_token
    export GOOGLE_MAPS_API_KEY=your_google_maps_api_key
    export OPENCAGE_API_KEY=your_opencage_api_key
+   export NATIONALIZE_API_KEY=your_nationalize_api_key
+
    ```
 
 ## Usage
@@ -51,7 +53,7 @@ Before running the script, make sure you have the following:
    python github_user_geolocation.py
    ```
 
-3. The script will generate a GeoJSON file (`geojson_results.json`) containing the locations of the contributors.
+3. The script will generate a GeoJSON file (`contributors.json`) in a `data` directory containing the locations of the contributors.
 
 ## How It Works
 
@@ -60,18 +62,13 @@ Before running the script, make sure you have the following:
 3. If a GitHub profile is found, the script retrieves the user's location information.
 4. The location string is geocoded using multiple services (Nominatim, OpenCage, Google Maps) to obtain coordinates.
 5. If geocoding fails or no location is available, the script uses a fallback mechanism to predict a country based on the user's name.
-6. The results are compiled into a GeoJSON FeatureCollection.
-7. The final GeoJSON is saved to a file.
+
 
 ## Limitations
 
 - The accuracy of the geolocation depends on the information provided in GitHub profiles and the geocoding services used.
 - API rate limits may affect the script's performance, especially for large lists of contributors.
 - The script uses fallback mechanisms and name-based country prediction, which may not always be accurate.
-
-## Contributing
-
-Contributions to improve the script are welcome. Please feel free to submit issues or pull requests.
 
 ## License
 
